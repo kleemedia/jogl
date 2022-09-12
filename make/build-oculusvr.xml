@@ -249,9 +249,11 @@
         <compilerarg value="i386" if="use.macosx32"/>
         <compilerarg value="-arch" if="use.macosx64"/>
         <compilerarg value="x86_64" if="use.macosx64"/>
+        <compilerarg value="-arch" if="use.macosa64"/>
+        <compilerarg value="arm64" if="use.macosa64"/>
         <compilerarg value="-Wmost" />
         <!-- compilerarg value="-ObjC" / -->
-        <compilerarg value="-mmacosx-version-min=10.5"/>
+        <compilerarg value="-mmacosx-version-min=10.9"/>
         <defineset>
           <define name="NDEBUG"   unless="c.compiler.use-debug"/>
         </defineset>
@@ -556,7 +558,7 @@
                 <includepath path="${src.generated.c}" />
 
                 <compilerarg location="start" value="-ObjC"                     if="isOSX"/>
-                <compilerarg location="start" value="-mmacosx-version-min=10.7" if="isOSX"/>
+                <compilerarg location="start" value="-mmacosx-version-min=10.9" if="isOSX"/>
 
                 <compilerarg value="-municode"                                  if="isMingW"/>
                 <compilerarg value="-DUNICODE"                                  if="isMingW"/>
@@ -597,7 +599,7 @@
                 <compilerarg location="start" value="c++"                       if="isCLANG"/>
                 -->
                 <compilerarg location="start" value="-stdlib=libc++"            if="isOSX"/>
-                <compilerarg location="start" value="-mmacosx-version-min=10.7" if="isOSX"/>
+                <compilerarg location="start" value="-mmacosx-version-min=10.9" if="isOSX"/>
 
                 <compilerarg value="-std=c++11"/>
                 <compilerarg value="-fno-rtti"/>
@@ -642,7 +644,7 @@
                 <syslibset dir="/usr/lib/amd64" libs="X11 Xrandr udev m"       if="isSolarisAMD64"/>
                 <syslibset dir="/usr/lib/sparcv9" libs="X11 Xrandr udev m"     if="isSolarisSparcv9"/>
 
-                <linkerarg location="start" value="-mmacosx-version-min=10.7"  if="isOSX"/>
+                <linkerarg location="start" value="-mmacosx-version-min=10.9"  if="isOSX"/>
 
                 <!-- syslibset libs="stdc++"
                      Don't link dynamic 

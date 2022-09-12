@@ -177,6 +177,16 @@
             </or>                
           </and>
         </condition>
+        <property name="swt-cocoa-macosx-aarch64.jar" value="${project.root}/make/lib/swt/cocoa-macosx-aarch64/swt.jar"/>
+        <condition property="swt.jar" value="${swt-cocoa-macosx-aarch64.jar}">
+          <and>
+            <istrue value="${isOSX}" />
+            <or>
+              <os arch="arm64" />
+              <os arch="aarch64" />
+            </or>                
+          </and>
+        </condition>
         <property name="swt-cocoa-macosx-x86_32.jar" value="${project.root}/make/lib/swt/cocoa-macosx/swt.jar"/>
         <condition property="swt.jar" value="${swt-cocoa-macosx-x86_32.jar}"> <!-- no more supported since SWT 4.10 -->
           <and>
